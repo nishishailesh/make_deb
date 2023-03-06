@@ -1,0 +1,6 @@
+#!/bin/sh -e
+. /usr/share/debconf/confmodule
+db_get ocp/printers
+aq=$RET
+
+echo "This is preinst:printer= $aq" > /tmp/preinst

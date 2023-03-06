@@ -1,0 +1,31 @@
+#!/bin/bash -e
+# Source debconf library.
+. /usr/share/debconf/confmodule
+
+#######Setup printers list choices########
+declare -a options;
+for p in `lpstat -v|awk -F " " {'print $3'}|sed  's/://g'`
+do
+	options=$options", $p";
+done
+
+#db_subst ocp/printers list_of_printers ${options[*]}
+db_subst ocp/printers list_of_printers $options
+##########################################
+
+#echo "B1" | convert label:@- myipaddress.png
+#convert -size 30x30 label:"|||" barcode.png
+
+db_version 2.0
+db_beginblock
+db_input high  ocp/printers || true
+db_input high ocp/short_name || true
+db_endblock
+
+#start user interface
+db_go
+
+#how to access variable result
+#db_get another_question
+#echo $RET  > /tmp/postinst_success
+exit 0

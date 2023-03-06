@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Print_Barcode
+GenericName=Print_Barcode
+TryExec=/usr/bin/print_barcode
+Exec=/usr/bin/print_barcode
+Terminal=false
+Type=Application
+Keywords=print;
+Icon=barcode.png
+Categories=Utility;TextEditor;
+StartupNotify=false
