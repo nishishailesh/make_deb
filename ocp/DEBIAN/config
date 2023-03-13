@@ -20,6 +20,8 @@ db_version 2.0
 db_beginblock
 db_input high  ocp/printers || true
 db_input high ocp/short_name || true
+db_input high ocp/folder || true
+db_input high ocp/file || true
 db_endblock
 
 #start user interface

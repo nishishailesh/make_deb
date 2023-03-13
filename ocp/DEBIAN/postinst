@@ -1,0 +1,25 @@
+#!/bin/sh -e
+. /usr/share/debconf/confmodule
+
+db_get ocp/short_name
+aq=$RET
+echo "Shortname $aq is used to create png" >> /tmp/postinst
+
+convert -size 30x30 label:"$aq" "/usr/share/icons/ocp_$aq.png"
+
+db_get ocp/printers
+pn=$RET
+
+db_get ocp/folder
+folder=$RET
+
+db_get ocp/file
+file=$RET
+
+
+desktop="[Desktop Entry]\nName=Print_$pn\nGenericName=Print in $pn\nTryExec=/usr/bin/ocp_print_$pn\nExec=/usr/bin/ocp_print_$pn\nTerminal=false\nType=Application\nKeywords=print;\nIcon=ocp_$aq.png\nCategories=Utility;Office;\nStartupNotify=false"
+echo $desktop > "/usr/share/applications/ocp_print_$pn.desktop"
+
+command="lpr -P $pn $folder/$file\nrm $folder/* -fR"
+echo "$command" > "/usr/bin/ocp_print_$pn"
+chmod +x "/usr/bin/ocp_print_$pn"

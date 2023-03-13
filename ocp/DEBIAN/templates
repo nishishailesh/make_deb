@@ -1,0 +1,22 @@
+Template: ocp/printers
+Type: select
+Choices: ${list_of_printers}
+Description: Select Printer?
+ This printer will be used for printing
+
+Template: ocp/short_name
+Type: string
+Description: Write short name for selected printer (max 4 letters)
+ This will be displayed as Icon
+
+Template: ocp/folder
+Type: string
+Default: /home/biochemistry/Downloads
+Description: Where will the file to be printed be located?
+ This folder will have file to be printed. After print, folder will be emptied
+
+Template: ocp/file
+Type: string
+Default: barcode.pdf
+Description: Write file name e.g barcode.pdf  / report.pdf
+ This file will be printed

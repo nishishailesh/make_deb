@@ -1,2 +1,0 @@
-lpr -P Zebra_TLP2844 /home/biochemistry/Downloads/barcode.pdf
-rm /home/biochemistry/Downloads/*
