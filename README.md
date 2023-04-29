@@ -17,3 +17,9 @@ Basically it does following (for one of my requirements)
  - The, it cleans folders (deletes all files in folder)
  - This is useful to print same file-name from a browser with minimum user efforts repeatititavely
  
+making .deb from here
+ - git clone https://github.com/nishishailesh/make_deb
+ - go inside make_deb folder
+ - dpkg -i ocp.deb
+ - answer questions
+ - see applications->office
